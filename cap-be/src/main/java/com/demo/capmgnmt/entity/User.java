@@ -31,8 +31,11 @@ public class User extends Audit {
     @Digits(integer = 10, fraction = 0, message = "Phone number should only contain digits")
     private String phoneNumber;
 
-    @OneToOne
-    private Address address;
+    @ManyToOne(cascade = CascadeType.DETACH)
+    @JoinColumn(name = "region_id")
+    private Region region;
+
+    private String address;
 
     private boolean isEnabled, isLocked;
 
