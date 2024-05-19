@@ -3,6 +3,7 @@ package com.demo.capmgnmt.exception;
 import com.demo.capmgnmt.common.response.APIResponse;
 import com.demo.capmgnmt.common.response.ResponseMessage;
 import com.demo.capmgnmt.exception.custom.BadRequestException;
+import com.demo.capmgnmt.exception.custom.CategoryNotFoundException;
 import com.demo.capmgnmt.exception.custom.RegionNotSupportedException;
 import com.demo.capmgnmt.exception.custom.UserDoesNotExistException;
 import org.springframework.http.HttpHeaders;
@@ -67,16 +68,23 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(UserDoesNotExistException.class)
-    public ResponseEntity<Object> handleUserDoesNotExistException(UserDoesNotExistException ex) {
+    public ResponseEntity<Object> handleUserDoesNotExistException() {
         return APIResponse.failure(
                 Collections.singletonList(RESPONSE_MESSAGE_MAP.get(USER_DOES_NOT_EXIST))
                 , HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(RegionNotSupportedException.class)
-    public ResponseEntity<Object> handleBadRequestException(RegionNotSupportedException ex) {
+    public ResponseEntity<Object> handleBadRequestException() {
         return APIResponse.failure(
                 Collections.singletonList(RESPONSE_MESSAGE_MAP.get(REGION_NOT_SUPPORTED))
+                , HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(CategoryNotFoundException.class)
+    public ResponseEntity<Object> handleCategoryNotFoundException() {
+        return APIResponse.failure(
+                Collections.singletonList(RESPONSE_MESSAGE_MAP.get(CATEGORY_NOT_SUPPORTED))
                 , HttpStatus.NOT_FOUND);
     }
 }
