@@ -17,7 +17,8 @@ public interface Message {
                 USER_ALREADY_REGISTERED = "USER_ALREADY_REGISTERED",
                 INVALID_INPUT = "INVALID_INPUT",
                 GENERIC_ERROR = "GENERIC_ERROR",
-                REGION_NOT_SUPPORTED = "REGION_NOT_SUPPORTED";
+                REGION_NOT_SUPPORTED = "REGION_NOT_SUPPORTED",
+                CATEGORY_NOT_SUPPORTED = "CATEGORY_NOT_SUPPORTED"
         ;
 
     }
@@ -41,6 +42,10 @@ public interface Message {
                         REGION_NOT_SUPPORTED,
                         "اعذرنا يالطيب .. مابعد وصلنا منطقتك",
                         "Sorry, the region you entered isn't supported yet."));
+                put(CATEGORY_NOT_SUPPORTED, new ResponseMessage(
+                        CATEGORY_NOT_SUPPORTED,
+                        "مابعد توسعنا لهدرجة .. دوّر لك قسم غيره!",
+                        "This category isn't supported yet..maybe in the future!"));
             }
         };
     }
