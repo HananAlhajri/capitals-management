@@ -1,10 +1,7 @@
 package com.demo.capmgnmt.entity;
 
-import com.demo.capmgnmt.entity.base.Audit;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.validation.constraints.NotBlank;
+import com.demo.capmgnmt.entity.base.Base;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
@@ -15,12 +12,11 @@ import java.util.List;
 
 @Data
 @Entity(name = "cap_region")
-public class Region extends Audit {
+public class Region extends Base {
 
-    @NotBlank
+    @Column(unique = true)
     private String regionEn, regionAr;
 
-    @OneToMany(mappedBy = "region", cascade = CascadeType.ALL)
-    private List<Address> addresses;
-
+    @OneToMany(mappedBy = "region", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<User> users;
 }
