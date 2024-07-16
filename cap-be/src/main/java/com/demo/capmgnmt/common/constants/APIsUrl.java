@@ -18,7 +18,14 @@ public interface APIsUrl {
 
     interface Lookup {
         String LOOKUP_BASE_URL = Common.API_BASE_URL + "/lookup",
-        CATEGORIES = "/categories",
-        ITEMS = "/items";
+                CATEGORIES = "/categories",
+                ITEMS = "/items";
+    }
+
+    interface Cart {
+        String CART_BASE_URL = Common.API_BASE_URL + "/cart",
+                ADD_ITEM = "/add",
+                REMOVE_ITEM = "/remove",
+                VIEW_CART = "/view";
     }
 }

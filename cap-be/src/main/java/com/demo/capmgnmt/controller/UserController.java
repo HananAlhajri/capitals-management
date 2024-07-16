@@ -24,7 +24,6 @@ public class UserController {
     private final IUserService userService;
 
     @PostMapping(CREATE_USER)
-
     public ResponseEntity<?> register(@Valid @RequestBody NewUserRequest newUser) {
         userService.createUser(newUser);
         return APIResponse.success();
