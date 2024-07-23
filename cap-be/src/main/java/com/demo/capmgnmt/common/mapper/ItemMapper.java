@@ -12,5 +12,6 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface ItemMapper {
+    ItemResponse mapItemResponse(Item Item);
     List<ItemResponse> mapItemsResponse(List<Item> Items);
 }

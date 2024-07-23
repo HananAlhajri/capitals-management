@@ -15,7 +15,6 @@ public class CartController {
 
     private final ICartService cartService;
 
-
     @GetMapping(VIEW_CART)
     public ResponseEntity<?> view() {
         return APIResponse.success(cartService.viewCart());

@@ -1,6 +1,6 @@
 package com.demo.capmgnmt.service;
 
-import com.demo.capmgnmt.dto.ItemDTO;
+import com.demo.capmgnmt.dto.response.ItemResponse;
 
 import java.util.HashMap;
 
@@ -9,5 +9,5 @@ public interface ICartService {
 
     void removeItem(Long id);
 
-    HashMap<Long, ItemDTO> viewCart();
+    HashMap<Long, ItemResponse> viewCart();
 }

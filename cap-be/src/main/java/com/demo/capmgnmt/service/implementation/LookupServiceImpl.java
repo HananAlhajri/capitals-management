@@ -26,11 +26,23 @@ public class LookupServiceImpl {
     }
 
     public List<ItemResponse> getItemsInCategory(Long categoryId) {
-        return itemMapper.mapItemsResponse(
+
+        List<ItemResponse> items = itemMapper.mapItemsResponse(
                 itemRepository.findAllByCategory(
                         categoryRepository.findById(categoryId)
                                 .orElseThrow(CategoryNotFoundException::new)
                 )
         );
+
+        items.forEach(item -> {
+            if (item.getComments() != null && !item.getComments().isEmpty()) {
+                System.out.println(item.getComments().size());
+                item.setNumberOfComments(item.getComments().size());
+            }
+
+            item.setComments(null);
+        });
+
+        return items;
     }
 }

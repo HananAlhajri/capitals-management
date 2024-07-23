@@ -11,5 +11,5 @@ import lombok.EqualsAndHashCode;
 @Data
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class ItemNotFoundException extends RuntimeException {
+public class NotFoundException extends RuntimeException {
 }

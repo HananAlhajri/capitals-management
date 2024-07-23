@@ -1,6 +1,6 @@
 package com.demo.capmgnmt.service.implementation;
 
-import com.demo.capmgnmt.dto.ItemDTO;
+import com.demo.capmgnmt.dto.response.ItemResponse;
 import com.demo.capmgnmt.service.ICartService;
 import com.demo.capmgnmt.service.IItemService;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +13,7 @@ import java.util.HashMap;
 public class CartService implements ICartService {
 
     private final IItemService itemService;
-    public HashMap<Long, ItemDTO> cart = new HashMap<>();
+    public HashMap<Long, ItemResponse> cart = new HashMap<>();
 
     @Override
     public void addItem(Long id) {
@@ -25,7 +25,8 @@ public class CartService implements ICartService {
         cart.remove(id);
     }
 
-    public HashMap<Long, ItemDTO> viewCart() {
+    public HashMap<Long, ItemResponse> viewCart() {
         return cart;
     }
+
 }

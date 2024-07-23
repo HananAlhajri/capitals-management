@@ -6,7 +6,9 @@ package com.demo.capmgnmt.common.constants;
 
 public interface APIsUrl {
     interface Common {
-        String API_BASE_URL = "/api";
+        String API_BASE_URL = "/api",
+                LIKE_URL = "/like",
+                DISLIKE_URL = "/dislike";
     }
 
     interface User {
@@ -27,5 +29,14 @@ public interface APIsUrl {
                 ADD_ITEM = "/add",
                 REMOVE_ITEM = "/remove",
                 VIEW_CART = "/view";
+    }
+
+    interface Item {
+        String ITEM_BASE_URL = Common.API_BASE_URL + "/item",
+                VIEW_ITEM_URL = "/view";
+    }
+
+    interface Comment {
+        String COMMENT_BASE_URL = "/comment";
     }
 }
